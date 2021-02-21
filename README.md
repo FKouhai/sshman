@@ -16,6 +16,12 @@ The script was also thought for machines that share the same user and password
 
 How it works:
 
-This program needs 3 parameters to run, the remote user, remote password and the command that will be launched in the remote machine
+This program needs 3 parameters to run, the remote user, remote password and the command that will be launched in the remote machine,
+You also need a file called server.txt where you have the IP of the servers that you want to connect to
+
 The script runs the command in the remote machine and writes the output in a file called info, 
 if you have any feedback on how to improve it, feel free to share it or to make a branch and contribute to it 
+
+An example on how to run this command
+
+python sshConnect.py user password "df -h"
