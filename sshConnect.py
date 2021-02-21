@@ -2,7 +2,6 @@ import getpass
 import pexpect
 import sys
 from pexpect import pxssh
-servers = open('server.txt','r') 
 
 if len(sys.argv) == 3:
   user = sys.argv[1]
