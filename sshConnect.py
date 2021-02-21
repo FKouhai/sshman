@@ -3,16 +3,6 @@ import pexpect
 import sys
 from pexpect import pxssh
 servers = open('server.txt','r') 
-user = sys.argv[0]
-pasw = sys.argv[1]
-cmnd = sys.argv[2]
-
-
-if len(sys.argv) < 3:
-  print("You need to pass 3 args which are the user, the ssh pass and the command you want to run on the remote machine")
-elif sys.argv[0] == '-h' or sys.argv[0] == '--help':
-  print(" This program needs 3 arguments to work, the remote user, its password and the command you want to execute,\n you also need a file called servers.txt where the remote IP's are \n this program only works in windows so far")
-
 
 def action(cmnd):
  with open('info') as inf:
@@ -31,4 +21,18 @@ def invoke(ip,usr,passw,command,inf):
   inf.write(s.before)
   s.logout
 
-action(cmnd)
+try:
+ action(cmnd)
+except NameError:
+  if sys.argv[0] == '-h' or sys.argv[0] == '--help':
+     print(" This program needs 3 arguments to work, the remote user, its password and the command you want to execute,\n you also need a file called server.txt where the remote IP's are \n this program only works in windows so far")
+  elif len(sys.argv) < 3:
+     print(sys.argv[0])
+     print("You need to pass 3 args which are the user, the ssh pass and the command you want to run on the remote machine")
+  elif len(sys.argv) == 3:
+     print(sys.argv[0])
+     user = sys.argv[0]
+     pasw = sys.argv[1]
+     cmnd = sys.argv[2]
+
+
