@@ -39,5 +39,5 @@ except NameError:
     you also need a file called server.txt where the remote IP's are
     this program only works in windows so far
     """)
-    elif len(sys.argv) < 3:
+    elif len(sys.argv) < 4:
         print("You need to pass 3 args which are the user, the ssh pass and the command you want to run on the remote machine")
